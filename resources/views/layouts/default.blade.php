@@ -21,7 +21,7 @@
 
     @component('components.header')@endcomponent
     @yield('content')
-
+    @component('components.footer')@endcomponent
     <!-- jQuery (Necessary for All JavaScript Plugins) -->
     <script src="/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->

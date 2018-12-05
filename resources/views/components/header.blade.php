@@ -16,8 +16,6 @@
 
     <!-- Logo Area -->
     @component('components.logo')@endcomponent
-    
-
     <!-- Nav Area -->
     @component('components.nav')@endcomponent
 </header>
