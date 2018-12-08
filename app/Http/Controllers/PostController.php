@@ -13,15 +13,24 @@ use Carbon\Carbon;
 
 class PostController extends Controller
 {
-  public function posts()
+  public function posts(Request $request)
   {
-    //return Helper::featureImage(39);
+    //get page number
+    if($request->input('page')!==null&&is_numeric($request->input('page')))
+    {
+      $page=$request->input("page");
+    }else{
+      $page=1;
+    }
     try{
+
       $client=new \GuzzleHttp\Client();
-      $response=$client->get('http://loveplanet.live/wp-json/wp/v2/posts?page=1');
+      $response=$client->get("http://loveplanet.live/wp-json/wp/v2/posts?per_page=9&page=$page");
       //return $response->getHeaders()['X-WP-TotalPages'];
       $data=[];
       $results=json_decode($response->getBody(),true);
+      $totalpages=$response->getHeaders()['X-WP-TotalPages'][0];
+      //return $totalpages;
       foreach($results as $result)
       {
         $time=Carbon::parse($result['date']);
@@ -32,11 +41,23 @@ class PostController extends Controller
           'data'=>$result,
           'image'=>json_decode(file_get_contents('http://loveplanet.live/wp-json/wp/v2/media/'.$imageid),true)['media_details']['sizes']['medium']['source_url'],
           'date'=>$time->day,
-          'month'=>$time->format('F')
+          'month'=>$time->format('F'),
         );
 
+
+
       }
-      return view('posts',['posts'=>$data]);
+
+      return view('posts',
+        [
+          'posts'=>$data,
+          'pagination'=>array(
+            'current'=>$page,
+            'total'=>$totalpages,
+            'type'=>'posts'
+          )
+        ]
+      );
     }catch(\GuzzleHttp\Exception\ClientException $ce){
       return $ce;
     }catch(\GuzzleHttp\Exception\RequestException $re){
