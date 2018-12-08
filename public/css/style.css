@@ -1414,6 +1414,8 @@ textarea:focus ~ .highlight {
 
 /*# sourceMappingURL=style.css.map */
 
+/*wp-content*/
+
 .alignnone {
   margin: 5px 20px 20px 0;
 }
@@ -1519,3 +1521,5 @@ a img.aligncenter {
   width: auto;
   z-index: 100000;
 }
+
+/*pagination*/

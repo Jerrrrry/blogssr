@@ -8,6 +8,9 @@
       @foreach ($posts as $post)
         @component('components.post',['post' => $post])@endcomponent
       @endforeach
+
+      @component('components.pagination',['pagination' => $pagination])@endcomponent
+
     </div>
 </div>
 @endsection
