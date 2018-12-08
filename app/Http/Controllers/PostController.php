@@ -22,10 +22,11 @@ class PostController extends Controller
     }else{
       $page=1;
     }
+    $per_page=env('POSTS_PER_PAGE');
     try{
 
       $client=new \GuzzleHttp\Client();
-      $response=$client->get("http://loveplanet.live/wp-json/wp/v2/posts?per_page=9&page=$page");
+      $response=$client->get("http://loveplanet.live/wp-json/wp/v2/posts?per_page=$per_page&page=$page");
       //return $response->getHeaders()['X-WP-TotalPages'];
       $data=[];
       $results=json_decode($response->getBody(),true);
