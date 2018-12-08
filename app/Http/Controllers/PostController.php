@@ -60,11 +60,11 @@ class PostController extends Controller
         ]
       );
     }catch(\GuzzleHttp\Exception\ClientException $ce){
-      return $ce;
+      return redirect()->route('404');
     }catch(\GuzzleHttp\Exception\RequestException $re){
-      return $re;
+      return redirect()->route('404');
     }catch(\Exception $e){
-      return $e;
+      return redirect()->route('404');
     }
   }
   //post
@@ -75,21 +75,28 @@ class PostController extends Controller
       $response=$client->get('http://loveplanet.live/wp-json/wp/v2/posts?slug='.$slug);
       //return $response->getHeaders()['X-WP-TotalPages'];
       $post=json_decode($response->getBody(),true)[0];
+      //return $post;
       $imageid=$post['featured_media'];
       $time=Carbon::parse($post['date']);
+      $tags=[];
+      foreach($post['tags'] as $tag)
+      {
+        $tags[]=json_decode(file_get_contents("http://loveplanet.live/wp-json/wp/v2/tags/$tag"));
+      }
       $data=array(
         'post'=>$post,
         'image'=>json_decode(file_get_contents('http://loveplanet.live/wp-json/wp/v2/media/'.$imageid),true)['media_details']['sizes']['large']['source_url'],
         'date'=>$time->day,
-        'month'=>$time->format('F')
+        'month'=>$time->format('F'),
+        'tags'=>$tags
       );
       return view('post',['post'=>$data]);
     }catch(\GuzzleHttp\Exception\ClientException $ce){
-      return $ce;
+      return redirect()->route('404');
     }catch(\GuzzleHttp\Exception\RequestException $re){
-      return $re;
+      return redirect()->route('404');
     }catch(\Exception $e){
-      return $e;
+      return redirect()->route('404');
     }
   }
   //search
@@ -142,11 +149,11 @@ class PostController extends Controller
         ]
       );
     }catch(\GuzzleHttp\Exception\ClientException $ce){
-      return $ce;
+      return redirect()->route('404');
     }catch(\GuzzleHttp\Exception\RequestException $re){
-      return $re;
+      return redirect()->route('404');
     }catch(\Exception $e){
-      return $e;
+      return redirect()->route('404');
     }
   }
 }

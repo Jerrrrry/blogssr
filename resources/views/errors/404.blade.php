@@ -3,5 +3,9 @@
 @section('title', 'Page Not Found')
 
 @section('content')
-  <h3>Sorry, Page not Found</h3>
+<div class="container">
+  <div class='row'>
+    <h3>Sorry, Page not Found</h3>
+  </div>
+</div>
 @endsection

@@ -6,15 +6,12 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-  public function index(){
-    try{
+  public function about(){
+    return view('about');
+  }
 
-    }catch(\GuzzleHttp\Exception\ClientException $ce){
-
-    }catch(\GuzzleHttp\Exception\RequestException $re){
-
-    }catch(\Exception $e){
-
-    }
+  public function contact()
+  {
+    return view('contact');
   }
 }

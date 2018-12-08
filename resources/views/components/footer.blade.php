@@ -25,12 +25,10 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Lifestyle</a></li>
-                                    <li><a href="#">travel</a></li>
-                                    <li><a href="#">Music</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                  <li><a href="/">主页</a></li>
+                                  <li><a href="/posts">最近发布</a></li>
+                                  <li><a href="/about">关于我们</a></li>
+                                  <li><a href="/contact">联系我们</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->

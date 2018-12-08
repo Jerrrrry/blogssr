@@ -36,6 +36,13 @@
               </div>
 
           </div>
+
+          <div class="col-12 col-md-4 col-lg-12">
+              <div class="post-sidebar-area">
+                  @component('components.tags',['tags' => $post['tags']])@endcomponent
+
+              </div>
+          </div>
         </div>
     </div>
 </div>
