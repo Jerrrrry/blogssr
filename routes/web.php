@@ -20,3 +20,4 @@ Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
 
 Route::get('posts', 'PostController@posts');
 Route::get('post/{slug}', 'PostController@post');
+Route::get('search', 'PostController@searchPosts');
