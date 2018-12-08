@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title', $post['post']['title']['rendered'])
-
+@section('keywords', $post['metatags'])
 @section('content')
 <div class="single-blog-wrapper section-padding-0-100">
 

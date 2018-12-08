@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'Recent Posts')
+@section('title', '最近发布')
 
 @section('content')
 <div class="container">

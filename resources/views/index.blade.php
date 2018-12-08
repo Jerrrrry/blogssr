@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'nima')
+@section('title', '一种很作的生活方式')
 
 @section('content')
   @component('components.heroarea')@endcomponent

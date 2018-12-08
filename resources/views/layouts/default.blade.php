@@ -9,6 +9,9 @@
 
       <!-- Title -->
       <title>@yield('title') - Love Planet</title>
+      <meta name="description" content="@yield('title')">
+      <meta name="keywords" content="@yield('keywords')">
+      <meta name="DC.title" content="@yield('title')">
 
       <!-- Favicon -->
       <link rel="icon" href="/img/core-img/favicon.ico">

@@ -83,12 +83,18 @@ class PostController extends Controller
       {
         $tags[]=json_decode(file_get_contents("http://loveplanet.live/wp-json/wp/v2/tags/$tag"));
       }
+      $metatags='';
+      foreach($tags as $tag)
+      {
+        $metatags.=$tag->name.',';
+      }
       $data=array(
         'post'=>$post,
         'image'=>json_decode(file_get_contents('http://loveplanet.live/wp-json/wp/v2/media/'.$imageid),true)['media_details']['sizes']['large']['source_url'],
         'date'=>$time->day,
         'month'=>$time->format('F'),
-        'tags'=>$tags
+        'tags'=>$tags,
+        'metatags'=>$metatags
       );
       return view('post',['post'=>$data]);
     }catch(\GuzzleHttp\Exception\ClientException $ce){
