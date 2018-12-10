@@ -9,8 +9,8 @@
                     <div class="single-blog-content">
                         <div class="line"></div>
                         <a href="#" class="post-tag">Lifestyle</a>
-                        <h4><a href="#" class="post-headline">Welcome to this Lifestyle blog</a></h4>
-                        <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
+                        <h4><a href="#" class="post-headline">欢迎来到很作的生活方式</a></h4>
+                        <p>小众的</p>
                         <a href="#" class="btn original-btn">Read More</a>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                     <img src="img/blog-img/1.jpg" alt="">
                     <!-- Catagory Title -->
                     <div class="catagory-title">
-                        <a href="#">Lifestyle posts</a>
+                        <a href="/posts">好吃的</a>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                     <img src="img/blog-img/2.jpg" alt="">
                     <!-- Catagory Title -->
                     <div class="catagory-title">
-                        <a href="#">latest posts</a>
+                        <a href="/posts">最新发布</a>
                     </div>
                 </div>
             </div>
