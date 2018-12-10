@@ -10,10 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('index');
-});
+//inde page real slider
+Route::get('/', 'PageController@index');
 
 Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
 Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
