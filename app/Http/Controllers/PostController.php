@@ -23,10 +23,11 @@ class PostController extends Controller
       $page=1;
     }
     $per_page=env('POSTS_PER_PAGE');
+    $query="per_page=$per_page&page=$page";
     try{
 
       $client=new \GuzzleHttp\Client();
-      $response=$client->get("http://loveplanet.live/wp-json/wp/v2/posts?per_page=$per_page&page=$page");
+      $response=$client->get("http://loveplanet.live/wp-json/wp/v2/posts?$query");
       //return $response->getHeaders()['X-WP-TotalPages'];
       $data=[];
       $results=json_decode($response->getBody(),true);
@@ -104,6 +105,67 @@ class PostController extends Controller
       return redirect()->route('404');
     }catch(\Exception $e){
       return redirect()->route('404');
+    }
+  }
+  //tag
+  public function tag(Request $request)
+  {
+    //get page number
+    if($request->input('page')!==null&&is_numeric($request->input('page')))
+    {
+      $page=$request->input("page");
+    }else{
+      $page=1;
+    }
+    $per_page=env('POSTS_PER_PAGE');
+    $query="per_page=$per_page&page=$page";
+    //check tags request
+    if($request->input('tag')!==null&&is_numeric($request->input('tag')))
+    {
+      $tag=$request->input('tag');
+      $query.="&tags=$tag";
+    }
+    try{
+
+      $client=new \GuzzleHttp\Client();
+      $response=$client->get("http://loveplanet.live/wp-json/wp/v2/posts?$query");
+      //return $response->getHeaders()['X-WP-TotalPages'];
+      $data=[];
+      $results=json_decode($response->getBody(),true);
+      //return $results;
+      $totalpages=$response->getHeaders()['X-WP-TotalPages'][0];
+      $tagdata=json_decode(file_get_contents("http://loveplanet.live/wp-json/wp/v2/tags/$tag"),true);
+      //return $totalpages;
+      foreach($results as $result)
+      {
+        $time=Carbon::parse($result['date']);
+        //get image
+        //$client = new \GuzzleHttp\Client(['base_uri' => 'http://loveplanet.live/wp-json/wp/v2/']);
+        $imageid=$result['featured_media'];
+        $data[]=array(
+          'data'=>$result,
+          'image'=>Helper::featureMediumImage($imageid),
+          'date'=>$time->day,
+          'month'=>$time->format('F'),
+        );
+      }
+      return view('tag',
+        [
+          'posts'=>$data,
+          'pagination'=>array(
+            'current'=>$page,
+            'total'=>$totalpages,
+            'type'=>'tags',
+          ),
+          'tag'=>$tagdata
+        ]
+      );
+    }catch(\GuzzleHttp\Exception\ClientException $ce){
+      return view('errors.404');
+    }catch(\GuzzleHttp\Exception\RequestException $re){
+        return view('errors.404');
+    }catch(\Exception $e){
+        return view('errors.404');
     }
   }
   //search

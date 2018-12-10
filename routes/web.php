@@ -17,6 +17,7 @@ Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
 Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
 
 Route::get('posts', 'PostController@posts');
+Route::get('tag', 'PostController@tag');
 Route::get('post/{slug}', 'PostController@post');
 Route::get('search', 'PostController@searchPosts');
 Route::get('about', 'PageController@about');

@@ -4,7 +4,7 @@
         <ul class="tags">
           @foreach ($tags as $tag)
             <li >
-              <a href="">{{$tag->name}}</a>
+              <a href="/tag?tag={{$tag->id}}&slug={{$tag->slug}}">{{$tag->name}}</a>
             </li>
           @endforeach
 

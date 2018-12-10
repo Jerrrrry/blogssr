@@ -13,7 +13,7 @@
                 <div class="contact-form">
                     <h5>Get in Touch</h5>
                     <!-- Contact Form -->
-                    <form action="#" method="post">
+                    <form action="/" method="get">
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="group">
