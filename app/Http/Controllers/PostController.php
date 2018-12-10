@@ -30,6 +30,7 @@ class PostController extends Controller
       //return $response->getHeaders()['X-WP-TotalPages'];
       $data=[];
       $results=json_decode($response->getBody(),true);
+      //return $results;
       $totalpages=$response->getHeaders()['X-WP-TotalPages'][0];
       //return $totalpages;
       foreach($results as $result)
@@ -40,7 +41,7 @@ class PostController extends Controller
         $imageid=$result['featured_media'];
         $data[]=array(
           'data'=>$result,
-          'image'=>json_decode(file_get_contents('http://loveplanet.live/wp-json/wp/v2/media/'.$imageid),true)['media_details']['sizes']['medium']['source_url'],
+          'image'=>Helper::featureMediumImage($imageid),
           'date'=>$time->day,
           'month'=>$time->format('F'),
         );
@@ -60,11 +61,11 @@ class PostController extends Controller
         ]
       );
     }catch(\GuzzleHttp\Exception\ClientException $ce){
-      return redirect()->route('404');
+      return view('errors.404');
     }catch(\GuzzleHttp\Exception\RequestException $re){
-      return redirect()->route('404');
+        return view('errors.404');
     }catch(\Exception $e){
-      return redirect()->route('404');
+        return view('errors.404');
     }
   }
   //post
@@ -90,7 +91,7 @@ class PostController extends Controller
       }
       $data=array(
         'post'=>$post,
-        'image'=>json_decode(file_get_contents('http://loveplanet.live/wp-json/wp/v2/media/'.$imageid),true)['media_details']['sizes']['large']['source_url'],
+        'image'=>Helper::featureFullImage($imageid),
         'date'=>$time->day,
         'month'=>$time->format('F'),
         'tags'=>$tags,

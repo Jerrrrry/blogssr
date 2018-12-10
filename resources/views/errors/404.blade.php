@@ -6,6 +6,7 @@
 <div class="container">
   <div class='row'>
     <h3>Sorry, Page not Found</h3>
+    <h4></h4>
   </div>
 </div>
 @endsection
