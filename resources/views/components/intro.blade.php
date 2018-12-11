@@ -18,7 +18,7 @@
             <!-- Single Blog Area -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="single-catagory-area clearfix mb-100">
-                    <img src="img/blog-img/1.jpg" alt="">
+                    <img src="/img/random/random_{{rand(1,10)}}.jpg" alt="好吃的">
                     <!-- Catagory Title -->
                     <div class="catagory-title">
                         <a href="/posts">好吃的</a>
@@ -28,7 +28,7 @@
             <!-- Single Blog Area -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="single-catagory-area clearfix mb-100">
-                    <img src="img/blog-img/2.jpg" alt="">
+                    <img src="/img/random/random_{{rand(11,20)}}.jpg" alt="最新发布">
                     <!-- Catagory Title -->
                     <div class="catagory-title">
                         <a href="/posts">最新发布</a>
