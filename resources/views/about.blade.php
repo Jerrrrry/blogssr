@@ -5,12 +5,12 @@
 
 @section('content')
 <!-- ##### Breadcumb Area Start ##### -->
-<div class="breadcumb-area bg-img" style="background-image: url(/img/bg-img/b1.jpg);">
+<div class="breadcumb-area bg-img" style="background-image: url(/img/random/random_{{rand(1,20)}}.jpg);">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <div class="breadcumb-content text-center">
-                    <h2>about us</h2>
+                    <h2>关于我们</h2>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
             <!-- Single Blog Area -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="single-catagory-area clearfix mb-100">
-                    <img src="/img/blog-img/1.jpg" alt="">
+                    <img src="/img/random/random_{{rand(1,20)}}.jpg" alt="">
                     <!-- Catagory Title -->
                     <div class="catagory-title">
                         <a href="#">Lifestyle posts</a>
@@ -59,7 +59,7 @@
 <!-- ##### Blog Wrapper End ##### -->
 
 <!-- ##### Cool Facts Area Start ##### -->
-<div class="cool-facts-area section-padding-100-0 bg-img background-overlay" style="background-image: url(img/bg-img/b4.jpg);">
+<div class="cool-facts-area section-padding-100-0 bg-img background-overlay" style="background-image: url(/img/random/random_{{rand(1,20)}}.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-12">
