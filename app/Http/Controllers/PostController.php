@@ -168,6 +168,69 @@ class PostController extends Controller
         return view('errors.404');
     }
   }
+
+  //category
+  public function category(Request $request)
+  {
+    //get page number
+    if($request->input('page')!==null&&is_numeric($request->input('page')))
+    {
+      $page=$request->input("page");
+    }else{
+      $page=1;
+    }
+    $per_page=env('POSTS_PER_PAGE');
+    $query="per_page=$per_page&page=$page";
+    //check tags request
+    if($request->input('category')!==null&&is_numeric($request->input('category')))
+    {
+      $category=$request->input('category');
+      $query.="&categories=$category";
+    }
+    try{
+
+      $client=new \GuzzleHttp\Client();
+      $response=$client->get("http://loveplanet.live/wp-json/wp/v2/posts?$query");
+      //return $response->getHeaders()['X-WP-TotalPages'];
+      $data=[];
+      $results=json_decode($response->getBody(),true);
+      //return $results;
+      $totalpages=$response->getHeaders()['X-WP-TotalPages'][0];
+      $catdata=json_decode(file_get_contents("http://loveplanet.live/wp-json/wp/v2/categories/$category"),true);
+      //return $totalpages;
+      foreach($results as $result)
+      {
+        $time=Carbon::parse($result['date']);
+        //get image
+        //$client = new \GuzzleHttp\Client(['base_uri' => 'http://loveplanet.live/wp-json/wp/v2/']);
+        $imageid=$result['featured_media'];
+        $data[]=array(
+          'data'=>$result,
+          'image'=>Helper::featureMediumImage($imageid),
+          'date'=>$time->day,
+          'month'=>$time->format('F'),
+        );
+      }
+
+      return view('category',
+        [
+          'posts'=>$data,
+          'pagination'=>array(
+            'current'=>$page,
+            'total'=>$totalpages,
+            'type'=>'cats',
+          ),
+          'category'=>$catdata
+        ]
+      );
+    }catch(\GuzzleHttp\Exception\ClientException $ce){
+      return view('errors.404');
+    }catch(\GuzzleHttp\Exception\RequestException $re){
+        return view('errors.404');
+    }catch(\Exception $e){
+        return view('errors.404');
+    }
+  }
   //search
 
   public function searchPosts(Request $request)
