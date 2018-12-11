@@ -9,9 +9,9 @@ need to figure out php Guzzle Async request
 
 we currently use get_files_content instead , this is not a long term solution
 
+2. wordpress endpoint need ssl , chrome show site is not fully secure
 
-
-know how
+Know How
 
 ssl setup
 
@@ -28,3 +28,5 @@ https://www.searchenginejournal.com/xml-sitemaps-seo/266907/
 https://laravel-news.com/laravel-sitemap
 
 https://www.xml-sitemaps.com/
+
+wordpress endpoint need ssl
