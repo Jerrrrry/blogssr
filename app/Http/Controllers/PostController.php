@@ -27,7 +27,7 @@ class PostController extends Controller
     try{
 
       $client=new \GuzzleHttp\Client();
-      $response=$client->get("http://loveplanet.live/wp-json/wp/v2/posts?$query");
+      $response=$client->get("https://loveplanet.live/wp-json/wp/v2/posts?$query");
       //return $response->getHeaders()['X-WP-TotalPages'];
       $data=[];
       $results=json_decode($response->getBody(),true);
@@ -74,7 +74,7 @@ class PostController extends Controller
   {
     try{
       $client=new \GuzzleHttp\Client();
-      $response=$client->get('http://loveplanet.live/wp-json/wp/v2/posts?slug='.$slug);
+      $response=$client->get('https://loveplanet.live/wp-json/wp/v2/posts?slug='.$slug);
       //return $response->getHeaders()['X-WP-TotalPages'];
       $post=json_decode($response->getBody(),true)[0];
       //return $post;
@@ -83,7 +83,7 @@ class PostController extends Controller
       $tags=[];
       foreach($post['tags'] as $tag)
       {
-        $tags[]=json_decode(file_get_contents("http://loveplanet.live/wp-json/wp/v2/tags/$tag"));
+        $tags[]=json_decode(file_get_contents("https://loveplanet.live/wp-json/wp/v2/tags/$tag"));
       }
       $metatags='';
       foreach($tags as $tag)
@@ -128,13 +128,13 @@ class PostController extends Controller
     try{
 
       $client=new \GuzzleHttp\Client();
-      $response=$client->get("http://loveplanet.live/wp-json/wp/v2/posts?$query");
+      $response=$client->get("https://loveplanet.live/wp-json/wp/v2/posts?$query");
       //return $response->getHeaders()['X-WP-TotalPages'];
       $data=[];
       $results=json_decode($response->getBody(),true);
       //return $results;
       $totalpages=$response->getHeaders()['X-WP-TotalPages'][0];
-      $tagdata=json_decode(file_get_contents("http://loveplanet.live/wp-json/wp/v2/tags/$tag"),true);
+      $tagdata=json_decode(file_get_contents("https://loveplanet.live/wp-json/wp/v2/tags/$tag"),true);
       //return $totalpages;
       foreach($results as $result)
       {
@@ -190,13 +190,13 @@ class PostController extends Controller
     try{
 
       $client=new \GuzzleHttp\Client();
-      $response=$client->get("http://loveplanet.live/wp-json/wp/v2/posts?$query");
+      $response=$client->get("https://loveplanet.live/wp-json/wp/v2/posts?$query");
       //return $response->getHeaders()['X-WP-TotalPages'];
       $data=[];
       $results=json_decode($response->getBody(),true);
       //return $results;
       $totalpages=$response->getHeaders()['X-WP-TotalPages'][0];
-      $catdata=json_decode(file_get_contents("http://loveplanet.live/wp-json/wp/v2/categories/$category"),true);
+      $catdata=json_decode(file_get_contents("https://loveplanet.live/wp-json/wp/v2/categories/$category"),true);
       //return $totalpages;
       foreach($results as $result)
       {
@@ -247,7 +247,7 @@ class PostController extends Controller
     try{
 
       $client=new \GuzzleHttp\Client();
-      $response=$client->get("http://loveplanet.live/wp-json/wp/v2/posts?search=$search&per_page=$per_page&page=$page");
+      $response=$client->get("https://loveplanet.live/wp-json/wp/v2/posts?search=$search&per_page=$per_page&page=$page");
       //return $response->getHeaders()['X-WP-TotalPages'];
       $data=[];
       $results=json_decode($response->getBody(),true);
@@ -261,7 +261,7 @@ class PostController extends Controller
         $imageid=$result['featured_media'];
         $data[]=array(
           'data'=>$result,
-          'image'=>json_decode(file_get_contents('http://loveplanet.live/wp-json/wp/v2/media/'.$imageid),true)['media_details']['sizes']['medium']['source_url'],
+          'image'=>json_decode(file_get_contents('https://loveplanet.live/wp-json/wp/v2/media/'.$imageid),true)['media_details']['sizes']['medium']['source_url'],
           'date'=>$time->day,
           'month'=>$time->format('F'),
         );

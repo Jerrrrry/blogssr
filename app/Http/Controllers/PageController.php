@@ -28,7 +28,7 @@ class PageController extends Controller
     try{
 
       $client=new \GuzzleHttp\Client();
-      $response=$client->get("http://loveplanet.live/wp-json/wp/v2/posts?per_page=6&page=1");
+      $response=$client->get("https://loveplanet.live/wp-json/wp/v2/posts?per_page=6&page=1");
       //return $response->getHeaders()['X-WP-TotalPages'];
       $data=[];
       $results=json_decode($response->getBody(),true);
