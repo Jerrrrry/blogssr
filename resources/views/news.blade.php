@@ -27,7 +27,7 @@
                                     @if ($news['content']=='')
                                         <p>{{$news['description']}}</p>
                                     @else
-                                        <p>{{$news['description']}}</p>
+                                        <p>{{$news['content']}}</p>
                                     @endif
                                     <div class="post-meta">
                                         <p>By <a href="#">{{$news['author']}}</a></p>
