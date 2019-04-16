@@ -26,8 +26,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('newssources')->hourly();
-        $schedule->command('eachsourcetopten')->hourly();
+        $schedule->command('newssources')->daily();
+        $schedule->command('eachsourcetopten')->dailyAt('06:00');
+        $schedule->command('eachsourcetopten')->dailyAt('17:00');
     }
 
     /**
