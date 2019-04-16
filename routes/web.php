@@ -26,4 +26,4 @@ Route::get('contact', 'PageController@contact');
 Route::get('test', 'TestController@testImage');
 Route::get('testnews', 'NewsController@testnews');
 
-Route::get('fourlinessources', 'NewsController@fourLinesSources');
+Route::get('news', 'NewsController@newspage');
