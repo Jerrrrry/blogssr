@@ -22,7 +22,7 @@
                                 <div class="single-blog-content mt-50">
                                     <div class="line"></div>
                                     <a href="#" class="post-tag">Lifestyle</a>
-                                    <h4><a href="#" class="post-headline">{{$news['title']}}</a></h4>
+                                    <h4><a href="{{$news['url']}}" target="_blank" class="post-headline">{{$news['title']}}</a></h4>
                                     
                                     @if ($news['content']=='')
                                         <p>{{$news['description']}}</p>
