@@ -55,7 +55,7 @@ class Testnews extends Command
                 $this->info($article['title']);
             }
 
-            Cache::forever('test-news',$json['articles'],60);
+            Cache::forever('test-news',$json['articles']);
 
         }catch(\GuzzleHttp\Exception\ClientException $ce){
               $this->error('client exception');
