@@ -19,4 +19,9 @@ class Helper
       return '/img/random/random_'.rand(1,20).'.jpg';
     }
   }
+
+  public static function newsApiKey()
+  {
+    return 'fa1790410a29459786c4f779b1a1b409';
+  }
 }
