@@ -34,6 +34,44 @@
                                     <li><a href="/category?category=1">新鲜有趣的</a></li>
                                 </ul>
                             </li>
+
+                            <li class="megamenu-item"><a href="#">News</a>
+                                        <div class="megamenu">
+                                            <ul class="single-mega cn-col-4">
+                                                <li class="title">Headline 1</li>
+                                                <li><a href="#">Mega Menu Item 1</a></li>
+                                                <li><a href="#">Mega Menu Item 2</a></li>
+                                                <li><a href="#">Mega Menu Item 3</a></li>
+                                                <li><a href="#">Mega Menu Item 4</a></li>
+                                                <li><a href="#">Mega Menu Item 5</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li class="title">Headline 2</li>
+                                                <li><a href="#">Mega Menu Item 1</a></li>
+                                                <li><a href="#">Mega Menu Item 2</a></li>
+                                                <li><a href="#">Mega Menu Item 3</a></li>
+                                                <li><a href="#">Mega Menu Item 4</a></li>
+                                                <li><a href="#">Mega Menu Item 5</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li class="title">Headline 3</li>
+                                                <li><a href="#">Mega Menu Item 1</a></li>
+                                                <li><a href="#">Mega Menu Item 2</a></li>
+                                                <li><a href="#">Mega Menu Item 3</a></li>
+                                                <li><a href="#">Mega Menu Item 4</a></li>
+                                                <li><a href="#">Mega Menu Item 5</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li class="title">Headline 4</li>
+                                                <li><a href="#">Mega Menu Item 1</a></li>
+                                                <li><a href="#">Mega Menu Item 2</a></li>
+                                                <li><a href="#">Mega Menu Item 3</a></li>
+                                                <li><a href="#">Mega Menu Item 4</a></li>
+                                                <li><a href="#">Mega Menu Item 5</a></li>
+                                            </ul>
+                                        </div>
+                                    <span class="dd-trigger"></span><span class="dd-arrow"></span>
+                            </li>
                             <li><a href="/about">关于我们</a></li>
                             <li><a href="/contact">联系我们</a></li>
                         </ul>
