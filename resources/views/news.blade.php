@@ -23,7 +23,12 @@
                                     <div class="line"></div>
                                     <a href="#" class="post-tag">Lifestyle</a>
                                     <h4><a href="#" class="post-headline">{{$news['title']}}</a></h4>
-                                    <p>{{$news['description']}}</p>
+                                    
+                                    @if ($news['content']=='')
+                                        <p>{{$news['description']}}</p>
+                                    @else
+                                        <p>{{$news['description']}}</p>
+                                    @endif
                                     <div class="post-meta">
                                         <p>By <a href="#">{{$news['author']}}</a></p>
                                     </div>
