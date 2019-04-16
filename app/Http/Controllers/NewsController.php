@@ -34,7 +34,7 @@ class NewsController extends Controller
     {
         if(Cache::has('news-sources'))
         {
-            return Helper::partition(Cache::get('news-sources'),4)
+            return Helper::partition(Cache::get('news-sources'),4);
         }else{
             return [];
         }
