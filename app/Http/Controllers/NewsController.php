@@ -35,5 +35,20 @@ class NewsController extends Controller
         return Helper::sourcesMegamenu();
     }
 
+    public function newspage(Request $request)
+    {
+        if($request->input('source')==null)
+        {
+            $sourceid='crypto-coins-news';
+        }else{
+            $sourceid=$request->input('source');
+        }
+
+        return view(
+            'news',['title'=>$sourceid,'newss'=>Cache::get("toplines-$sourceid")]
+        );
+
+    }
+
 
 }

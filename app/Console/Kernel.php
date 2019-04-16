@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         'App\Console\Commands\Testnews',
-        'App\Console\Commands\Newssources'
+        'App\Console\Commands\Newssources',
+        'App\Console\Commands\Eachsourcetopten',
     ];
 
     /**
@@ -26,6 +27,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('newssources')->hourly();
+        $schedule->command('eachsourcetopten')->hourly();
     }
 
     /**
