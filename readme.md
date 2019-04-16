@@ -30,3 +30,7 @@ https://laravel-news.com/laravel-sitemap
 https://www.xml-sitemaps.com/
 
 wordpress endpoint need ssl
+
+root role 
+
+su -s /bin/bash www-data

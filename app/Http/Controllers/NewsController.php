@@ -24,7 +24,7 @@ class NewsController extends Controller
         }
         return view('testnews',
         [
-          'news'=>$news,
+          'newss'=>$news,
         ]
       );
 
