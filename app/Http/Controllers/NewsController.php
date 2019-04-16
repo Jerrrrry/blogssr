@@ -32,11 +32,8 @@ class NewsController extends Controller
 
     public function fourLinesSources()
     {
-        if(Cache::has('news-sources'))
-        {
-            return Helper::partition(Cache::get('news-sources'),4);
-        }else{
-            return [];
-        }
+        return Helper::sourcesMegamenu();
     }
+
+
 }

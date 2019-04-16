@@ -38,4 +38,14 @@ class Helper
     }
     return $partition;
   }
+
+  public static function sourcesMegamenu()
+  {
+        if(Cache::has('news-sources'))
+        {
+            return Helper::partition(Cache::get('news-sources'),4);
+        }else{
+            return [];
+        }
+  }
 }
