@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\Testnews',
         'App\Console\Commands\Newssources',
         'App\Console\Commands\Eachsourcetopten',
+        'App\Console\Commands\Marvelcharacters',
     ];
 
     /**
