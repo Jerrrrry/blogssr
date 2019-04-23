@@ -3,7 +3,7 @@
     <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1000ms">
         <div class="single-blog-thumbnail">
             <a href="/marvel-hero/{{$hero['id']}}">
-              <img src="{{$hero['thumbnail']['path']}}" alt="Hero Featured Image"/>
+              <img src="{{$hero['thumbnail']['path']}}//portrait_xlarge.jpg" alt="Hero Featured Image"/>
             </a>
             
         </div>
