@@ -61,7 +61,7 @@
                             <h5 class="title">Story</h5>
                             <div class="widget-content">
                                 <ul class="tags">
-                                    @foreach ($hero['story']['items'] as $story)
+                                    @foreach ($hero['stories']['items'] as $story)
                                         <li >
                                         <a href="/series/">{{$story['name']}}</a>
                                         </li>
