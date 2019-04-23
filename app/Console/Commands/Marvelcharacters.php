@@ -79,7 +79,7 @@ class Marvelcharacters extends Command
                 $pages[]=$json['data']['results'];
             }
 
-            Cache::forever('herospage',$pages);
+            Cache::forever('wholeheros',$pages);
 
         }catch(\GuzzleHttp\Exception\ClientException $ce){
               $this->error($ce->getMessage());
