@@ -47,12 +47,39 @@ class Marvelcharacters extends Command
     public function handle()
     {
         //
-        $url="https://gateway.marvel.com:443/v1/public/characters?offset=100&apikey=a056a00ff900c56d29c9f431dbe66752";
+        
+        $url=Helper::urlAuth("https://gateway.marvel.com:443/v1/public/characters?");
+
+        $pages=[];
         try{
             $client=new \GuzzleHttp\Client();
             $response=$client->get($url);
             $json=json_decode($response->getBody(),true);
-            print_r($json);
+
+            $total=$json['data']['total'];
+            $this->info(floor($total/100));
+            //$offset=$json['data']['offset'];
+            //$this->info($offset);
+            for($n=0;$n<=floor($total/100);$n++)
+            {
+                $offset=$n*100;
+                $newurl=Helper::urlAuth("https://gateway.marvel.com:443/v1/public/characters?")."&offset=$offset&limit=100";
+                
+                $client=new \GuzzleHttp\Client();
+                $response=$client->get($newurl);
+                $json=json_decode($response->getBody(),true);
+                foreach($json['data']['results'] as $hero)
+                {
+                    $this->info($hero['name']);
+                    $id=$hero['id'];
+                    Cache::forever("mc-$id",$hero);
+
+                }
+
+                $pages[]=$json['data']['results'];
+            }
+
+            Cache::forever('herospage',$pages);
 
         }catch(\GuzzleHttp\Exception\ClientException $ce){
               $this->error($ce->getMessage());

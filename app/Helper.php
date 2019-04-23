@@ -1,5 +1,5 @@
 <?php
-
+use Carbon\Carbon;
 class Helper
 {
   public static function featureFullImage($id)
@@ -47,5 +47,14 @@ class Helper
         }else{
             return [];
         }
+  }
+
+  public static function urlAuth($url)
+  {
+    $publickey="a056a00ff900c56d29c9f431dbe66752";
+    $privatekey="788fcea57fcaec42733d96ea61f45341839b6f0f";
+    $ts=Carbon::now()->timestamp;
+    $hash=md5($ts.$privatekey.$publickey);
+    return $url."apikey=$publickey&ts=$ts&hash=$hash";
   }
 }
