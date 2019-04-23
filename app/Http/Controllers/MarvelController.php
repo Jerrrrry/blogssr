@@ -26,7 +26,7 @@ class MarvelController extends Controller
       $heros=$wholeheros[$page];
       return view('heros',
         [
-          'heros'=>$data,
+          'heros'=>$heros,
           'pagination'=>array(
             'current'=>$page,
             'total'=>$totalpages,
