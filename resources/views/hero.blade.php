@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title', 'Marvel Hero '.$hero['name'])
-@section('keywords', 'test')
+@section('keywords', Helper::herokeywords($hero))
 @section('content')
 <div class="blog-wrapper section-padding-100 clearfix">
         <div class="container">

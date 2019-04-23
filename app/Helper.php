@@ -57,4 +57,30 @@ class Helper
     $hash=md5($ts.$privatekey.$publickey);
     return $url."apikey=$publickey&ts=$ts&hash=$hash";
   }
+
+  public static function herokeywords($hero)
+  {
+    $keywords='';
+    try{
+      foreach($hero['comics']['items'] as $comic)
+      {
+        $keywords.=$comic['name'].' ';
+      }
+      foreach($hero['events']['items'] as $event)
+      {
+        $keywords.=$event['name'].' ';
+      }
+      foreach($hero['stories']['items'] as $story)
+      {
+        $keywords.=$story['name'].' ';
+      }
+      foreach($hero['series']['items'] as $series)
+      {
+        $keywords.=$series['name'].' ';
+      }
+      return $keywords;
+    }catch(\Exception $e){
+      return 'Welcome to Love Planet';
+    }
+  }
 }
