@@ -47,9 +47,9 @@ class MarvelController extends Controller
   public function hero($id)
   {
     try{
-        return Cache::get("mc-$id");
+        //return Cache::get("mc-$id");
       
-      //return view('post',['post'=>$data]);
+      return view('hero',['hero'=>Cache::get("mc-$id")]);
     }catch(\GuzzleHttp\Exception\ClientException $ce){
       return redirect()->route('404');
     }catch(\GuzzleHttp\Exception\RequestException $re){
