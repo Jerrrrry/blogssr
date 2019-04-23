@@ -10,7 +10,7 @@
         <!-- Blog Content -->
         <div class="single-blog-content mt-50">
             <h4>
-              <a href="/marvel-hero/{{$hero['id'][}}">
+              <a href="/marvel-hero/{{$hero['id']}}">
                 {{$hero['name']}}
               </a>
             </h4>
