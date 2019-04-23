@@ -35,6 +35,13 @@
                                 </ul>
                             </li>
 
+                            <li><a href="#">MARVEL</a>
+                                <ul class="dropdown">
+                                    <li><a href="/marvel-heros">人物</a></li>
+                                    <li><a href="/category?category=8">事件</a></li>
+                                </ul>
+                            </li>
+
                             <li class="megamenu-item"><a href="#">News</a>
                                         <div class="megamenu">
                                             <ul class="single-mega cn-col-4">

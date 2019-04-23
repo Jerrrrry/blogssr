@@ -9,7 +9,7 @@
         @component('components.hero',['hero' => $hero])@endcomponent
       @endforeach
 
-     
+      @component('components.pagination',['pagination' => $pagination])@endcomponent
 
     </div>
 </div>
