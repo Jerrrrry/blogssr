@@ -42,18 +42,20 @@
 
             <div class="col-12 col-md-4 col-lg-12">
               <div class="post-sidebar-area">
-                  
-                <h5 class="title">Series</h5>
-                <div class="widget-content">
-                    <ul class="tags">
-                        @foreach ($hero['series']['items'] as $series)
-                            <li >
-                            <a href="/series/">{{$series['name']}}</a>
-                            </li>
-                        @endforeach
+                <div class="sidebar-widget-area">
+                    
+                    <h5 class="title">Series</h5>
+                    <div class="widget-content">
+                        <ul class="tags">
+                            @foreach ($hero['series']['items'] as $series)
+                                <li >
+                                <a href="/series/">{{$series['name']}}</a>
+                                </li>
+                            @endforeach
 
 
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
               </div>
           </div>
