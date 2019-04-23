@@ -35,23 +35,83 @@
                 </div>
                 <!--series-->
                 <div class="col-12 col-md-4 col-lg-12">
-                <div class="post-sidebar-area">
-                    <div class="sidebar-widget-area">
-                        
-                        <h5 class="title">Series</h5>
-                        <div class="widget-content">
-                            <ul class="tags">
-                                @foreach ($hero['series']['items'] as $series)
-                                    <li >
-                                    <a href="/series/">{{$series['name']}}</a>
-                                    </li>
-                                @endforeach
+                    <div class="post-sidebar-area">
+                        <div class="sidebar-widget-area">
+                            
+                            <h5 class="title">Series</h5>
+                            <div class="widget-content">
+                                <ul class="tags">
+                                    @foreach ($hero['series']['items'] as $series)
+                                        <li >
+                                        <a href="/series/">{{$series['name']}}</a>
+                                        </li>
+                                    @endforeach
 
 
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!--stories-->
+                <div class="col-12 col-md-4 col-lg-12">
+                    <div class="post-sidebar-area">
+                        <div class="sidebar-widget-area">
+                            
+                            <h5 class="title">Story</h5>
+                            <div class="widget-content">
+                                <ul class="tags">
+                                    @foreach ($hero['story']['items'] as $story)
+                                        <li >
+                                        <a href="/series/">{{$story['name']}}</a>
+                                        </li>
+                                    @endforeach
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--comics-->
+                <div class="col-12 col-md-4 col-lg-12">
+                    <div class="post-sidebar-area">
+                        <div class="sidebar-widget-area">
+                            
+                            <h5 class="title">Comics</h5>
+                            <div class="widget-content">
+                                <ul class="tags">
+                                    @foreach ($hero['comics']['items'] as $comic)
+                                        <li >
+                                        <a href="/series/">{{$comic['name']}}</a>
+                                        </li>
+                                    @endforeach
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--events-->
+                <div class="col-12 col-md-4 col-lg-12">
+                    <div class="post-sidebar-area">
+                        <div class="sidebar-widget-area">
+                            
+                            <h5 class="title">Events</h5>
+                            <div class="widget-content">
+                                <ul class="tags">
+                                    @foreach ($hero['events']['items'] as $event)
+                                        <li >
+                                        <a href="/series/">{{$event['name']}}</a>
+                                        </li>
+                                    @endforeach
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
         </div>
     </div>
