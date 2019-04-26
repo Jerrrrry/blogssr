@@ -35,14 +35,14 @@
                                 </ul>
                             </li>
 
-                            <li><a href="#">MARVEL</a>
+                            <!--<li><a href="#">MARVEL</a>
                                 <ul class="dropdown">
                                     <li><a href="/marvel-heros">人物</a></li>
                                     <li><a href="/category?category=8">事件</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
 
-                            <li class="megamenu-item"><a href="#">News</a>
+                           <!--  <li class="megamenu-item"><a href="#">News</a>
                                         <div class="megamenu">
                                             <ul class="single-mega cn-col-4">
                                                 <li class="title">News Sources</li>
@@ -73,7 +73,7 @@
                             </li>
                             <li><a href="/about">关于我们</a></li>
                             <li><a href="/contact">联系我们</a></li>
-                        </ul>
+                        </ul>-->
 
                         <!-- Search Form  -->
                         @component('components.search')@endcomponent

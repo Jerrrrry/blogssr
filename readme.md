@@ -1,16 +1,7 @@
-todo :
-
-1. 404 page
-
-https://medium.com/@krissanawat/how-to-create-custom-404-page-in-laravel-5-5-a3f7f1a6d61
-
-
-need to figure out php Guzzle Async request
-
-we currently use get_files_content instead , this is not a long term solution
-
-2. wordpress endpoint need ssl , chrome show site is not fully secure
-
+New todo list
+1. Cache wordpress API results. Full page cache reduce wordpress site burden 
+2. Set up custom traffic/PV boost script , need another droplet. Requirement: Python environment 3.x+, proxy ip list (10 dolloar per month), logs 
+3. Set up more good SEO tiltle pages . Content could be empty but Ttile should be very impressive 
 Know How
 
 ssl setup
