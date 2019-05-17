@@ -2,6 +2,15 @@
 use Carbon\Carbon;
 class Helper
 {
+  public static function homePosts()
+  {
+    if(Cache::has('homearticles'))
+    {
+      return Cache::get('homearticles');
+    }else{
+      return [];
+    }
+  }
   public static function featureFullImage($id)
   {
     try{

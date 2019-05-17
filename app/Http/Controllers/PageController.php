@@ -43,9 +43,10 @@ class PageController extends Controller
           'image'=>Helper::featureFullImage($imageid),
         );
       }
-
+      
       return view('index',[
           'posts'=>$data,
+          'hposts'=>Helper::homePosts(),
           'sources'=>Helper::sourcesMegamenu()
         ]);
     }catch(\GuzzleHttp\Exception\ClientException $ce){
