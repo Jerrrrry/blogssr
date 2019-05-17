@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\Newssources',
         'App\Console\Commands\Eachsourcetopten',
         'App\Console\Commands\Marvelcharacters',
+        'App\Console\Commands\Homearticles',
     ];
 
     /**
@@ -30,6 +31,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('newssources')->daily();
         $schedule->command('eachsourcetopten')->dailyAt('06:00');
         $schedule->command('eachsourcetopten')->dailyAt('17:00');
+        $schedule->command('homearticles')->hourly();
     }
 
     /**
