@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
          <h2>Full Movies to Watch</h2>
+         <hr>
     </div>
 
 </div>
