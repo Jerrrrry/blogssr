@@ -47,7 +47,8 @@ class PageController extends Controller
       return view('index',[
           'posts'=>$data,
           'hposts'=>Helper::homePosts(),
-          'sources'=>Helper::sourcesMegamenu()
+          'sources'=>Helper::sourcesMegamenu(),
+          'movies'=>Helper::topMovies()
         ]);
     }catch(\GuzzleHttp\Exception\ClientException $ce){
       return view('errors.404');

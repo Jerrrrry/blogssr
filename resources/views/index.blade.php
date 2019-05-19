@@ -6,5 +6,6 @@
   @component('components.heroarea',['posts' => $posts])@endcomponent
   @component('components.intro')@endcomponent
   @component('components.homearticles',['posts' => $hposts])@endcomponent
+  @component('components.topmovies',['posts' => $movies])@endcomponent
   @component('components.ins')@endcomponent
 @endsection

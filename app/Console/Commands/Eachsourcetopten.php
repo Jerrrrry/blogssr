@@ -62,6 +62,7 @@ class Eachsourcetopten extends Command
                         foreach($json['articles'] as $article)
                         {
                             $this->info($article['title']);
+                            print_r($article);
                         }
                         Cache::forever("toplines-$id",$json['articles']);
                     }
@@ -72,7 +73,7 @@ class Eachsourcetopten extends Command
                 }catch(\GuzzleHttp\Exception\RequestException $re){
                       $this->error('request exception');
                 }catch(\Exception $e){
-                      $this->error('basic errors');
+                      $this->error($e->getMessage());
                 }
             }
         }else{

@@ -11,6 +11,17 @@ class Helper
       return [];
     }
   }
+
+  public static function topMovies()
+  {
+    if(Cache::has('topmovies'))
+    {
+      return Cache::get('topmovies');
+    }else{
+      return [];
+    }
+  }
+
   public static function featureFullImage($id)
   {
     try{

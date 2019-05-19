@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\Eachsourcetopten',
         'App\Console\Commands\Marvelcharacters',
         'App\Console\Commands\Homearticles',
+        'App\Console\Commands\Topmovies'
     ];
 
     /**
