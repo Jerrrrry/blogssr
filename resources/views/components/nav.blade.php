@@ -42,7 +42,7 @@
                                     <li><a href="/category?category=8">事件</a></li>
                                 </ul>
                             </li>-->
-                            <li><a href="#">目录</a>
+                            <li><a href="#">News</a>
                                 <ul class="dropdown">
 
                                     <li><a href="/news?politico">Politico</a></li>
@@ -50,7 +50,7 @@
                                     <li><a href="/news?source=espn">ESPN</a></li>
                                     <li><a href="/news?source=time">Time</a></li>
                                     <li><a href="/news?source=crypto-coins-news">Crypto News</a></li>
-                                    <li><a href="/newscenter">More News Sources</a></li>
+                                    <li><a href="/newscenter">More News</a></li>
                                 </ul>
                            </li>
                             <li><a href="/about">关于我们</a></li>
