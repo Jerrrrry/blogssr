@@ -1,4 +1,4 @@
-<div class="instagram-feed-area">
+
     <div class="container">
         <div class="row">
             <h2>Full Movies to Watch</h2>
@@ -13,4 +13,3 @@
 
         </div>
     </div>
-</div>

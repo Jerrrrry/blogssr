@@ -1,4 +1,4 @@
-<div class="instagram-feed-area">
+
     <div class="container">
         <div class="row">
             <h2>Delicious</h2>
@@ -14,4 +14,3 @@
 
         </div>
     </div>
-</div>
