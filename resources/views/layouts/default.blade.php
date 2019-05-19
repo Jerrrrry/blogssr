@@ -8,7 +8,7 @@
       <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
       <!-- Title -->
-      <title>@yield('title')- Watch Full Movie- Local Delicious - Love Planet</title>
+      <title>@yield('title') - Watch Full Movie Free Online - Local Delicious - Love Planet</title>
       <meta name="description" content="@yield('title')">
       <meta name="keywords" content="@yield('keywords')">
       <meta name="DC.title" content="@yield('title')">
