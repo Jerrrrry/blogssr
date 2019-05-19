@@ -26,6 +26,7 @@
                         <ul>
                             <li><a href="/">主页</a></li>
                             <li><a href="/posts">最近发布</a></li>
+                            <li><a href="/category?category=44">Movies</a></li>
                             <li><a href="#">目录</a>
                                 <ul class="dropdown">
                                     <li><a href="/category?category=7">好吃的</a></li>
