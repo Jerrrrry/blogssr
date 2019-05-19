@@ -27,5 +27,6 @@ Route::get('test', 'TestController@testImage');
 Route::get('testnews', 'NewsController@testnews');
 
 Route::get('news', 'NewsController@newspage');
+Route::get('newscenter', 'NewsController@newsCenter');
 Route::get('marvel-heros','MarvelController@heros');
 Route::get('marvel-hero/{id}','MarvelController@hero');

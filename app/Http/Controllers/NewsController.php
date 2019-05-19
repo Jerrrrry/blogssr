@@ -35,6 +35,18 @@ class NewsController extends Controller
         return Helper::sourcesMegamenu();
     }
 
+    public function newsCenter()
+    {
+        try{
+            
+            return view('newscenter',[
+                'sources'=>Cache::get('news-sources'),
+              ]);
+          }catch(\Exception $e){
+              return view('errors.404');
+          }
+    }
+
     public function newspage(Request $request)
     {
         if($request->input('source')==null)
