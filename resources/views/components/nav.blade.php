@@ -46,10 +46,10 @@
                                 <ul class="dropdown">
 
                                     <li><a href="/news?politico">Politico</a></li>
-                                    <li><a href="/news?source=entertainment-weekly">Entertainment Weekly</a></li>
+                                    <li><a href="/news?source=entertainment-weekly">Entertainment</a></li>
                                     <li><a href="/news?source=espn">ESPN</a></li>
                                     <li><a href="/news?source=time">Time</a></li>
-                                    <li><a href="/news?source=crypto-coins-news">Crypto Coins News</a></li>
+                                    <li><a href="/news?source=crypto-coins-news">Crypto News</a></li>
                                     <li><a href="/newscenter">More News Sources</a></li>
                                 </ul>
                            </li>
