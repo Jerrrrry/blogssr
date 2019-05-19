@@ -45,7 +45,7 @@
                             <li><a href="#">News</a>
                                 <ul class="dropdown">
 
-                                    <li><a href="/news?politico">Politico</a></li>
+                                    <li><a href="/news?source=politico">Politico</a></li>
                                     <li><a href="/news?source=entertainment-weekly">Entertainment</a></li>
                                     <li><a href="/news?source=espn">ESPN</a></li>
                                     <li><a href="/news?source=time">Time</a></li>
