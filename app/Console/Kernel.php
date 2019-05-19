@@ -33,6 +33,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('eachsourcetopten')->dailyAt('06:00');
         $schedule->command('eachsourcetopten')->dailyAt('17:00');
         $schedule->command('homearticles')->hourly();
+        $schedule->command('topmovies')->hourly();
     }
 
     /**
