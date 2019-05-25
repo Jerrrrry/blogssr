@@ -40,7 +40,7 @@ class Topmovies extends Command
      */
     public function handle()
     {
-        $per_page=20;
+        $per_page=24;
         $query="per_page=$per_page&&categories=44";
         
         try{
