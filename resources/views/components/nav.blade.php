@@ -53,8 +53,6 @@
                                     <li><a href="/newscenter">More News</a></li>
                                 </ul>
                            </li>
-                            <li><a href="/about">关于我们</a></li>
-                            <li><a href="/contact">联系我们</a></li>
                         </ul>
 
                         <!-- Search Form  -->
