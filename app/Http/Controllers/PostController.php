@@ -10,6 +10,7 @@ use \Psr\Http\Message\ResponseInterface;
 use \GuzzleHttp\Exception\RequestException;
 use Helper;
 use Carbon\Carbon;
+use Cache;
 
 class PostController extends Controller
 {
@@ -72,39 +73,45 @@ class PostController extends Controller
   //post
   public function post($slug)
   {
-    try{
-      $client=new \GuzzleHttp\Client();
-      $response=$client->get('https://loveplanet.live/wp-json/wp/v2/posts?slug='.$slug);
-      //return $response->getHeaders()['X-WP-TotalPages'];
-      $post=json_decode($response->getBody(),true)[0];
-      //return $post;
-      $imageid=$post['featured_media'];
-      $time=Carbon::parse($post['date']);
-      $tags=[];
-      foreach($post['tags'] as $tag)
-      {
-        $tags[]=json_decode(file_get_contents("https://loveplanet.live/wp-json/wp/v2/tags/$tag"));
+    if(Cache::has("post-$slug"))
+    {
+      return view('post',['post'=>Cache::get("post-$slug")]);
+    }else{
+      try{
+        $client=new \GuzzleHttp\Client();
+        $response=$client->get('https://loveplanet.live/wp-json/wp/v2/posts?slug='.$slug);
+        //return $response->getHeaders()['X-WP-TotalPages'];
+        $post=json_decode($response->getBody(),true)[0];
+        //return $post;
+        $imageid=$post['featured_media'];
+        $time=Carbon::parse($post['date']);
+        $tags=[];
+        foreach($post['tags'] as $tag)
+        {
+          $tags[]=json_decode(file_get_contents("https://loveplanet.live/wp-json/wp/v2/tags/$tag"));
+        }
+        $metatags='';
+        foreach($tags as $tag)
+        {
+          $metatags.=$tag->name.',';
+        }
+        $data=array(
+          'post'=>$post,
+          'image'=>Helper::featureFullImage($imageid),
+          'date'=>$time->day,
+          'month'=>$time->format('F'),
+          'tags'=>$tags,
+          'metatags'=>$metatags
+        );
+        Cache::put("post-$slug",$data,180);
+        return view('post',['post'=>$data]);
+      }catch(\GuzzleHttp\Exception\ClientException $ce){
+        return redirect()->route('404');
+      }catch(\GuzzleHttp\Exception\RequestException $re){
+        return redirect()->route('404');
+      }catch(\Exception $e){
+        return redirect()->route('404');
       }
-      $metatags='';
-      foreach($tags as $tag)
-      {
-        $metatags.=$tag->name.',';
-      }
-      $data=array(
-        'post'=>$post,
-        'image'=>Helper::featureFullImage($imageid),
-        'date'=>$time->day,
-        'month'=>$time->format('F'),
-        'tags'=>$tags,
-        'metatags'=>$metatags
-      );
-      return view('post',['post'=>$data]);
-    }catch(\GuzzleHttp\Exception\ClientException $ce){
-      return redirect()->route('404');
-    }catch(\GuzzleHttp\Exception\RequestException $re){
-      return redirect()->route('404');
-    }catch(\Exception $e){
-      return redirect()->route('404');
     }
   }
   //tag

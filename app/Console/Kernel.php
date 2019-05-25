@@ -18,7 +18,8 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\Eachsourcetopten',
         'App\Console\Commands\Marvelcharacters',
         'App\Console\Commands\Homearticles',
-        'App\Console\Commands\Topmovies'
+        'App\Console\Commands\Topmovies',
+        'App\Console\Commands\Slidercache'
     ];
 
     /**
@@ -34,6 +35,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('eachsourcetopten')->dailyAt('17:00');
         $schedule->command('homearticles')->hourly();
         $schedule->command('topmovies')->hourly();
+        $schedule->command('slidercache')->hourly();
     }
 
     /**
