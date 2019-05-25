@@ -25,50 +25,60 @@ class PostController extends Controller
     }
     $per_page=env('POSTS_PER_PAGE');
     $query="per_page=$per_page&page=$page";
-    try{
+    if(Cache::has("posts-$page"))
+    {
+      return view('posts',Cache::get("posts-$page"));
+    }else{
+      try{
 
-      $client=new \GuzzleHttp\Client();
-      $response=$client->get("https://loveplanet.live/wp-json/wp/v2/posts?$query");
-      //return $response->getHeaders()['X-WP-TotalPages'];
-      $data=[];
-      $results=json_decode($response->getBody(),true);
-      //return $results;
-      $totalpages=$response->getHeaders()['X-WP-TotalPages'][0];
-      //return $totalpages;
-      foreach($results as $result)
-      {
-        $time=Carbon::parse($result['date']);
-        //get image
-        //$client = new \GuzzleHttp\Client(['base_uri' => 'http://loveplanet.live/wp-json/wp/v2/']);
-        $imageid=$result['featured_media'];
-        $data[]=array(
-          'data'=>$result,
-          'image'=>Helper::featureMediumImage($imageid),
-          'date'=>$time->day,
-          'month'=>$time->format('F'),
-        );
-
-
-
-      }
-
-      return view('posts',
-        [
+        $client=new \GuzzleHttp\Client();
+        $response=$client->get("https://loveplanet.live/wp-json/wp/v2/posts?$query");
+        //return $response->getHeaders()['X-WP-TotalPages'];
+        $data=[];
+        $results=json_decode($response->getBody(),true);
+        //return $results;
+        $totalpages=$response->getHeaders()['X-WP-TotalPages'][0];
+        //return $totalpages;
+        foreach($results as $result)
+        {
+          $time=Carbon::parse($result['date']);
+          //get image
+          //$client = new \GuzzleHttp\Client(['base_uri' => 'http://loveplanet.live/wp-json/wp/v2/']);
+          $imageid=$result['featured_media'];
+          $data[]=array(
+            'data'=>$result,
+            'image'=>Helper::featureMediumImage($imageid),
+            'date'=>$time->day,
+            'month'=>$time->format('F'),
+          );
+        }
+        $cache=array(
           'posts'=>$data,
           'pagination'=>array(
-            'current'=>$page,
-            'total'=>$totalpages,
-            'type'=>'posts'
-          )
-        ]
-      );
-    }catch(\GuzzleHttp\Exception\ClientException $ce){
-      return view('errors.404');
-    }catch(\GuzzleHttp\Exception\RequestException $re){
+          'current'=>$page,
+          'total'=>$totalpages,
+          'type'=>'posts'
+        ));
+        Cache::put("posts-$page",$cache,180);
+        return view('posts',
+          [
+            'posts'=>$data,
+            'pagination'=>array(
+              'current'=>$page,
+              'total'=>$totalpages,
+              'type'=>'posts'
+            )
+          ]
+        );
+      }catch(\GuzzleHttp\Exception\ClientException $ce){
         return view('errors.404');
-    }catch(\Exception $e){
-        return view('errors.404');
+      }catch(\GuzzleHttp\Exception\RequestException $re){
+          return view('errors.404');
+      }catch(\Exception $e){
+          return view('errors.404');
+      }
     }
+    
   }
   //post
   public function post($slug)
