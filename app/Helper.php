@@ -12,6 +12,16 @@ class Helper
     }
   }
 
+  public static function slidercache()
+  {
+    if(Cache::has('slidercache'))
+    {
+      return Cache::get('slidercache');
+    }else{
+      return [];
+    }
+  }
+
   public static function topMovies()
   {
     if(Cache::has('topmovies'))

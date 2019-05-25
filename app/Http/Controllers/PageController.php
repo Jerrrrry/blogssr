@@ -27,25 +27,8 @@ class PageController extends Controller
 
     try{
 
-      $client=new \GuzzleHttp\Client();
-      $response=$client->get("https://loveplanet.live/wp-json/wp/v2/posts?per_page=6&page=1");
-      //return $response->getHeaders()['X-WP-TotalPages'];
-      $data=[];
-      $results=json_decode($response->getBody(),true);
-      foreach($results as $result)
-      {
-        $time=Carbon::parse($result['date']);
-        //get image
-        //$client = new \GuzzleHttp\Client(['base_uri' => 'http://loveplanet.live/wp-json/wp/v2/']);
-        $imageid=$result['featured_media'];
-        $data[]=array(
-          'data'=>$result,
-          'image'=>Helper::featureFullImage($imageid),
-        );
-      }
-      
       return view('index',[
-          'posts'=>$data,
+          'posts'=>Helper::slidercache(),
           'hposts'=>Helper::homePosts(),
           'sources'=>Helper::sourcesMegamenu(),
           'movies'=>Helper::topMovies()
