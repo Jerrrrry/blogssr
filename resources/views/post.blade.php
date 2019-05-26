@@ -8,7 +8,7 @@
     <!-- Single Blog Area  -->
     <div class="single-blog-area blog-style-2 mb-50">
         <div class="single-blog-thumbnail">
-            <img src="{{$post['image']}}" alt="{{$post['slug']}}"/>
+            <img src="{{$post['image']}}" alt="{{$post['post']['title']['rendered']}}"/>
             <div class="post-tag-content">
                 <div class="container">
                     <div class="row">
