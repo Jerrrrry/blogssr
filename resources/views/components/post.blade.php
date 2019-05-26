@@ -3,7 +3,7 @@
     <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1000ms">
         <div class="single-blog-thumbnail">
             <a href="/post/{{$post['data']['slug']}}">
-              <img src="{{$post['image']}}" alt="Blog Post Featured Image"/>
+              <img src="{{$post['image']}}" alt="{{$post['data']['slug']}}"/>
             </a>
             <div class="post-date">
                 <a href="#">{{$post['date']}}<span>{{$post['month']}}</span></a>
