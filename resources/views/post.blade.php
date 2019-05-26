@@ -29,7 +29,7 @@
               <div class="single-blog-area blog-style-2 mb-50">
                   <!-- Blog Content -->
                   <div class="single-blog-content">
-                      <h4><a href="#" class="post-headline mb-0">{{$post['post']['title']['rendered']}}</a></h4>
+                      <h1><a href="#" class="post-headline mb-0">{{$post['post']['title']['rendered']}}</a></h1>
 
                       {!!html_entity_decode($post['post']['content']['rendered'])!!}
                   </div>
