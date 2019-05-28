@@ -59,7 +59,7 @@ class PostController extends Controller
           'total'=>$totalpages,
           'type'=>'posts'
         ));
-        Cache::put("posts-$page",$cache,180);
+        Cache::put("posts-$page",$cache,720);
         return view('posts',
           [
             'posts'=>$data,
@@ -113,7 +113,7 @@ class PostController extends Controller
           'tags'=>$tags,
           'metatags'=>$metatags
         );
-        Cache::put("post-$slug",$data,180);
+        Cache::put("post-$slug",$data,720);
         return view('post',['post'=>$data]);
       }catch(\GuzzleHttp\Exception\ClientException $ce){
         return redirect()->route('404');
@@ -179,7 +179,7 @@ class PostController extends Controller
             'type'=>'tags',
           ),
           'tag'=>$tagdata);
-        Cache::put("tag-$tag-$page",$cache,180);
+        Cache::put("tag-$tag-$page",$cache,720);
         return view('tag',
           [
             'posts'=>$data,
@@ -220,49 +220,65 @@ class PostController extends Controller
       $category=$request->input('category');
       $query.="&categories=$category";
     }
-    try{
 
-      $client=new \GuzzleHttp\Client();
-      $response=$client->get("https://loveplanet.live/wp-json/wp/v2/posts?$query");
-      //return $response->getHeaders()['X-WP-TotalPages'];
-      $data=[];
-      $results=json_decode($response->getBody(),true);
-      //return $results;
-      $totalpages=$response->getHeaders()['X-WP-TotalPages'][0];
-      $catdata=json_decode(file_get_contents("https://loveplanet.live/wp-json/wp/v2/categories/$category"),true);
-      //return $totalpages;
-      foreach($results as $result)
-      {
-        $time=Carbon::parse($result['date']);
-        //get image
-        //$client = new \GuzzleHttp\Client(['base_uri' => 'http://loveplanet.live/wp-json/wp/v2/']);
-        $imageid=$result['featured_media'];
-        $data[]=array(
-          'data'=>$result,
-          'image'=>Helper::featureMediumImage($imageid),
-          'date'=>$time->day,
-          'month'=>$time->format('F'),
-        );
-      }
+    if(Cache::has("category-$category-$page"))
+    {
+      return view('category',Cache::get("category-$category-$page"));
+    }else{
+      try{
 
-      return view('category',
-        [
+        $client=new \GuzzleHttp\Client();
+        $response=$client->get("https://loveplanet.live/wp-json/wp/v2/posts?$query");
+        //return $response->getHeaders()['X-WP-TotalPages'];
+        $data=[];
+        $results=json_decode($response->getBody(),true);
+        //return $results;
+        $totalpages=$response->getHeaders()['X-WP-TotalPages'][0];
+        $catdata=json_decode(file_get_contents("https://loveplanet.live/wp-json/wp/v2/categories/$category"),true);
+        //return $totalpages;
+        foreach($results as $result)
+        {
+          $time=Carbon::parse($result['date']);
+          //get image
+          //$client = new \GuzzleHttp\Client(['base_uri' => 'http://loveplanet.live/wp-json/wp/v2/']);
+          $imageid=$result['featured_media'];
+          $data[]=array(
+            'data'=>$result,
+            'image'=>Helper::featureMediumImage($imageid),
+            'date'=>$time->day,
+            'month'=>$time->format('F'),
+          );
+        }
+
+        Cache::put("category-$category-$page",array(
           'posts'=>$data,
           'pagination'=>array(
             'current'=>$page,
             'total'=>$totalpages,
             'type'=>'cats',
           ),
-          'category'=>$catdata
-        ]
-      );
-    }catch(\GuzzleHttp\Exception\ClientException $ce){
-      return view('errors.404');
-    }catch(\GuzzleHttp\Exception\RequestException $re){
+          'category'=>$catdata),720);
+  
+        return view('category',
+          [
+            'posts'=>$data,
+            'pagination'=>array(
+              'current'=>$page,
+              'total'=>$totalpages,
+              'type'=>'cats',
+            ),
+            'category'=>$catdata
+          ]
+        );
+      }catch(\GuzzleHttp\Exception\ClientException $ce){
         return view('errors.404');
-    }catch(\Exception $e){
-        return view('errors.404');
+      }catch(\GuzzleHttp\Exception\RequestException $re){
+          return view('errors.404');
+      }catch(\Exception $e){
+          return view('errors.404');
+      }
     }
+    
   }
   //search
 
