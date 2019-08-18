@@ -24,10 +24,11 @@
                     <!-- Nav Start -->
                     <div class="classynav">
                         <ul>
-                            <li><a href="/">主页</a></li>
-                            <li><a href="/posts">最近发布</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/posts">Latest Posts</a></li>
                             <li><a href="/category?category=44">Movies</a></li>
-                            <li><a href="#">目录</a>
+                            <li><a href="/newscenter">News Center</a></li>
+                            <li><a href="#">Category</a>
                                 <ul class="dropdown">
                                     <li><a href="/category?category=7">好吃的</a></li>
                                     <li><a href="/category?category=8">好玩的</a></li>
@@ -36,12 +37,12 @@
                                 </ul>
                             </li>
 
-                            <!--<li><a href="#">MARVEL</a>
+                            <li><a href="#">MARVEL</a>
                                 <ul class="dropdown">
                                     <li><a href="/marvel-heros">人物</a></li>
                                     <li><a href="/category?category=8">事件</a></li>
                                 </ul>
-                            </li>-->
+                            </li>
                             
                                 <li class="megamenu-item"><a href="#">News</a>
                                         <div class="megamenu">

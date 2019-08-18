@@ -6,6 +6,7 @@
 <div class="single-blog-wrapper section-padding-0-100">
     <div class="container">
         <div class="row">
+            @component('components.ca')@endcomponent
           <div class="col-12 col-md-4 col-lg-12">
               <div class="post-sidebar-area">
                 <div class="sidebar-widget-area">
