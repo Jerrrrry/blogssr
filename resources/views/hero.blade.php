@@ -6,6 +6,7 @@
 <div class="blog-wrapper section-padding-100 clearfix">
         <div class="container">
             <div class="row">
+                @component('components.ca')@endcomponent
                 <!-- Hero Description  -->
                 <div class="col-lg-12">
                     <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1000ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 0.2s; animation-name: fadeInUp;">
@@ -24,8 +25,7 @@
                                         <h4>{{$hero['name']}}</h4>
                                         <p>{{$hero['description']}}</p>
                                         <div class="post-meta">
-                                            <p>By <a href="#">james smith</a></p>
-                                            <p>3 comments</p>
+                                            <p>By <a href="#">Marvel</a></p>
                                         </div>
                                     </div>
                                 </div>

@@ -5,6 +5,7 @@
 @section('content')
 <div class="container">
     <div class="row">
+        @component('components.ca')@endcomponent
         <div class="col-12">
             @foreach ($newss as $news)
                 <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1000ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 0.4s; animation-name: fadeInUp;">

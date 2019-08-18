@@ -13,6 +13,7 @@
         @component('components.post',['post' => $post])@endcomponent
       @endforeach
       @component('components.pagination',['pagination' => $pagination,'category'=>$category])@endcomponent
+      @component('components.ca')@endcomponent
     </div>
 </div>
 @endsection
