@@ -42,17 +42,40 @@
                                     <li><a href="/category?category=8">事件</a></li>
                                 </ul>
                             </li>-->
-                            <li><a href="#">News</a>
-                                <ul class="dropdown">
+                            
+                                <li class="megamenu-item"><a href="#">News</a>
+                                        <div class="megamenu">
+                                            <ul class="single-mega cn-col-4">
 
-                                    <li><a href="/news?source=politico">Politico</a></li>
-                                    <li><a href="/news?source=entertainment-weekly">Entertainment</a></li>
-                                    <li><a href="/news?source=espn">ESPN</a></li>
-                                    <li><a href="/news?source=time">Time</a></li>
-                                    <li><a href="/news?source=crypto-coins-news">Crypto News</a></li>
-                                    <li><a href="/newscenter">More News</a></li>
-                                </ul>
-                           </li>
+                                                @foreach (Helper::sourcesMegamenu()[0] as $source)
+                                                    <li><a href="#">{{$source['name']}}</a></li>
+                                                    <li><a href="/news?source={{$source['id']}}">{{$source['name']}}</a></li>
+                                                @endforeach
+                                                <
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                
+                                                @foreach (Helper::sourcesMegamenu()[1] as $source)
+                                                    <li><a href="/news?source={{$source['id']}}">{{$source['name']}}</a></li>
+                                                @endforeach
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                
+                                                @foreach (Helper::sourcesMegamenu()[2] as $source)
+                                                    <li><a href="/news?source={{$source['id']}}">{{$source['name']}}</a></li>
+                                                @endforeach
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                
+                                                @foreach (Helper::sourcesMegamenu()[3] as $source)
+                                                    <li><a href="/news?source={{$source['id']}}">{{$source['name']}}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                
+                                    <span class="dd-trigger"></span><span class="dd-arrow"></span>
+                                </li>
+                           
                         </ul>
 
                         <!-- Search Form  -->

@@ -25,3 +25,8 @@ wordpress endpoint need ssl
 root role 
 
 su -s /bin/bash www-data
+
+How To Add Swap on Ubuntu 14.04
+
+laok of swap
+https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
