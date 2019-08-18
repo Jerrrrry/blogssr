@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
       @component('components.ca')@endcomponent
-      <br>
+      <hr>
       @foreach ($posts as $post)
         @component('components.post',['post' => $post])@endcomponent
       @endforeach
