@@ -5,6 +5,7 @@
 @section('content')
 <div class="container">
     <div class="row">
+      @component('components.ca')@endcomponent
       <div class="col-12 col-lg-12">
         <h3>Category : {{$category['name']}} </h3>
       </div>
