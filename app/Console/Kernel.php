@@ -19,7 +19,8 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\Marvelcharacters',
         'App\Console\Commands\Homearticles',
         'App\Console\Commands\Topmovies',
-        'App\Console\Commands\Slidercache'
+        'App\Console\Commands\Slidercache',
+        'App\Console\Commands\Twittertest'
     ];
 
     /**
