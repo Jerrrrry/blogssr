@@ -30,4 +30,5 @@ Route::get('news', 'NewsController@newspage');
 Route::get('newscenter', 'NewsController@newsCenter');
 Route::get('marvel-heros','MarvelController@heros');
 Route::get('roses','RoseController@roses');
+Route::get('rose/{url}','RoseController@rose');
 Route::get('marvel-hero/{id}','MarvelController@hero');
