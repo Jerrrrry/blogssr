@@ -44,9 +44,10 @@ class Rose extends Command
         {
             if($file!=='.'&&$file!=="..")
             {
-                $roses[]=json_decode('/var/www/html/blogssr/public/storage/rosedata/lists/'.$file.'.json',true);
+                $path='/var/www/html/blogssr/public/storage/rosedata/lists/'.$file.'.json';
+                $roses[]=json_decode(file_get_contents($path),true);
                 $this->info($file);
-                Cache::forever("rose*$file",json_decode('/var/www/html/blogssr/public/storage/rosedata/lists/'.$file.'.json',true));
+                Cache::forever("rose*$file",json_decode(file_get_contents($path),true));
             }
         }
         Cache::forever('allroses',$roses);
