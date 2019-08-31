@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
-@section('title', 'Marvel Hero '.$hero['name'])
-@section('keywords', Helper::herokeywords($hero))
+@section('title', 'Rose '.$rose['name'].' detail information')
+@section('keywords', $rose['name'].' '.$rose['type'].' '.$rose['category'].' ')
 @section('content')
 <div class="blog-wrapper section-padding-100 clearfix">
         <div class="container">
