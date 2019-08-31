@@ -12,7 +12,7 @@ class RoseController extends Controller
         try{
 
             $roses=Cache::get('allroses');
-      
+            return $roses;
       
             return view('roses',
               [
