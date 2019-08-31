@@ -44,7 +44,7 @@
                                 <ul class="tags">
                                     @foreach ($rose['lists'] as $list)
                                         <li >
-                                            {{$list}}
+                                            <a href="#">{{$list}}</a>
                                         </li>
                                     @endforeach
 
