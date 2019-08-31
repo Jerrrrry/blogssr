@@ -28,6 +28,7 @@
                             <li><a href="/posts">Latest Posts</a></li>
                             <li><a href="/category?category=44">Movies</a></li>
                             <li><a href="/newscenter">News Center</a></li>
+                            <li><a href="/roses">Roses</a></li>
                             <li><a href="#">Category</a>
                                 <ul class="dropdown">
                                     <li><a href="/category?category=7">好吃的</a></li>

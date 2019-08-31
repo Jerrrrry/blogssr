@@ -5,13 +5,13 @@
 @section('content')
 <div class="container">
     <div class="row">
-    @component('components.ca')@endcomponent
+    
       @foreach ($heros as $hero)
         @component('components.hero',['hero' => $hero])@endcomponent
       @endforeach
 
       @component('components.pagination',['pagination' => $pagination])@endcomponent
-      @component('components.ca')@endcomponent
+     
     </div>
 </div>
 @endsection
