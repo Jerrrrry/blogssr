@@ -20,7 +20,9 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\Homearticles',
         'App\Console\Commands\Topmovies',
         'App\Console\Commands\Slidercache',
-        'App\Console\Commands\Twittertest'
+        'App\Console\Commands\Twittertest',
+        'App\Console\Commands\Rose',
+
     ];
 
     /**
