@@ -31,7 +31,7 @@ class RoseController extends Controller
     {
         try{
             //return Cache::get("mc-$id");
-          
+          return Cache::get("rose*$url");
           return view('rose',['rose'=>Cache::get("rose*$url")]);
         }catch(\GuzzleHttp\Exception\ClientException $ce){
           return redirect()->route('404');
