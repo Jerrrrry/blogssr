@@ -34,6 +34,7 @@
              
                 </div>
                 <!--series-->
+                @if (count($rose['lists'])>0)
                 <div class="col-12 col-md-4 col-lg-12">
                     <div class="post-sidebar-area">
                         <div class="sidebar-widget-area">
@@ -53,6 +54,8 @@
                         </div>
                     </div>
                 </div>
+                @endif
+                
                
         </div>
     </div>
