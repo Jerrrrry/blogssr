@@ -13,7 +13,6 @@
 
       @component('components.pagination',['pagination' => $pagination])@endcomponent
 
-      @component('components.ca')@endcomponent
 
     </div>
 </div>
