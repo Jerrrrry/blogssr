@@ -29,6 +29,8 @@
                                   <li><a href="/posts">最近发布</a></li>
                                   <li><a href="/about">关于我们</a></li>
                                   <li><a href="/contact">联系我们</a></li>
+                                  <li><a name="vr" href="https://www.originvirtualreality.com/">Best VR in Los Angeles</a></li>
+                                  <li><a name="asd" href="https://www.asdscuba.com/zh/home">ASD Diving Club</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
