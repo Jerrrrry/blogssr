@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-      @component('components.ca')@endcomponent
+      
       <div class="col-12 col-lg-12">
         <h3>Category : {{$category['name']}} </h3>
       </div>
@@ -13,7 +13,6 @@
         @component('components.post',['post' => $post])@endcomponent
       @endforeach
       @component('components.pagination',['pagination' => $pagination,'category'=>$category])@endcomponent
-      @component('components.ca')@endcomponent
     </div>
 </div>
 @endsection
