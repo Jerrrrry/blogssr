@@ -24,7 +24,6 @@
     </div>
     <div class="container">
         <div class="row">
-            @component('components.ca')@endcomponent
             <div class="col-12 col-lg-12">
                 <!-- Single Blog Area  -->
                 <div class="single-blog-area blog-style-2 mb-50">
